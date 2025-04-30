@@ -1,3 +1,4 @@
+
 function showForm() {
     document.getElementById('restaurantContainer').style.display = 'block';
     generateFormQuestions();
@@ -118,4 +119,8 @@ function submitForm() {
 
     document.getElementById('resultText').innerHTML = resultText;
     document.getElementById('result').style.display = 'block';
+}
+
+function closeForm() {
+    document.getElementById('restaurantContainer').style.display = 'none';
 }
