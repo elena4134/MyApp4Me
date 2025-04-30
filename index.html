@@ -30,18 +30,13 @@
         <h1>ASAMI Restaurant Form</h1>
         <p>~Normal Description~</p>
 
-        
-        <button onclick="closeForm()">Close Form</button> <!-- Close button -->
-
-        <form id="restaurantForm">
-            <div id="formQuestions"></div>
+        <div id="formWrapper">
+            <form id="restaurantForm">
+                <div id="formQuestions"></div>
+            </form>
             <button type="button" onclick="showPasswordPrompt()">Submit</button>
-        </form>
-        
-        <form id="restaurantForm">
-            <div id="formQuestions"></div>
-            <button type="button" onclick="showPasswordPrompt()">Submit</button>
-        </form>
+            <button type="button" onclick="closeForm()" class="close-btn">Close Form</button>
+        </div>
 
         <div id="passwordPrompt" style="display:none;">
             <h2>Enter Password</h2>
