@@ -29,6 +29,15 @@
     <section class="content" id="restaurantContainer" style="display:none;">
         <h1>ASAMI Restaurant Form</h1>
         <p>~Normal Description~</p>
+
+        
+        <button onclick="closeForm()">Close Form</button> <!-- Close button -->
+
+        <form id="restaurantForm">
+            <div id="formQuestions"></div>
+            <button type="button" onclick="showPasswordPrompt()">Submit</button>
+        </form>
+        
         <form id="restaurantForm">
             <div id="formQuestions"></div>
             <button type="button" onclick="showPasswordPrompt()">Submit</button>
