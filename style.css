@@ -45,3 +45,18 @@ footer {
     padding: 15px;
     margin-top: 20px;
 }
+
+
+#restaurantContainer button {
+    margin: 10px 5px;
+    padding: 10px 15px;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#restaurantContainer button:hover {
+    background-color: #444;
+}
