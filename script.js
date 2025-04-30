@@ -1,12 +1,21 @@
-
 function showForm() {
     document.getElementById('restaurantContainer').style.display = 'block';
     generateFormQuestions();
 }
 
+function closeForm() {
+    document.getElementById('restaurantContainer').style.display = 'none';
+    document.getElementById('formQuestions').innerHTML = '';
+    document.getElementById('passwordPrompt').style.display = 'none';
+    document.getElementById('result').style.display = 'none';
+    document.getElementById('restaurantForm').style.display = 'block';
+    document.getElementById('errorMessage').style.display = 'none';
+    document.getElementById('passwordInput').value = '';
+}
+
 function generateFormQuestions() {
     const container = document.getElementById('formQuestions');
-    if (container.children.length > 0) return; // prevent regenerating
+    if (container.children.length > 0) return;
 
     for (let i = 1; i <= 21; i++) {
         const div = document.createElement('div');
@@ -56,7 +65,7 @@ function getOptionLabel(questionNumber, optionNumber) {
 }
 
 function showPasswordPrompt() {
-    document.getElementById('restaurantForm').style.display = 'none';
+    document.getElementById('formWrapper').style.display = 'none';
     document.getElementById('passwordPrompt').style.display = 'block';
 }
 
@@ -76,16 +85,11 @@ function submitForm() {
     const answers = {};
 
     for (let [name, value] of formData.entries()) {
-        if (!answers[name]) {
-            answers[name] = {};
-        }
-        if (!answers[name][value]) {
-            answers[name][value] = 0;
-        }
+        if (!answers[name]) answers[name] = {};
+        if (!answers[name][value]) answers[name][value] = 0;
         answers[name][value]++;
     }
 
-    let resultText = '';
     const sectionResults = {
         section1: { a: 0, c: 0 },
         section2: { d: 0, f: 0 },
@@ -111,16 +115,12 @@ function submitForm() {
     const section2Result = sectionResults.section2.d > sectionResults.section2.f ? 's' : 'c';
     const section3Result = sectionResults.section3.b > sectionResults.section3.e ? 's' : 'm';
 
-    resultText = `
-      Section 1 Result: ${section1Result}<br>
-      Section 2 Result: ${section2Result}<br>
-      Section 3 Result: ${section3Result}
+    const resultText = `
+        Section 1 Result: ${section1Result}<br>
+        Section 2 Result: ${section2Result}<br>
+        Section 3 Result: ${section3Result}
     `;
 
     document.getElementById('resultText').innerHTML = resultText;
     document.getElementById('result').style.display = 'block';
-}
-
-function closeForm() {
-    document.getElementById('restaurantContainer').style.display = 'none';
 }
